@@ -3,24 +3,40 @@ import knex from '../database/connection'
 
 class FormasPagController{
     async index (request: Request, response: Response) {
-        const itens = await knex('formas_pagamento').select('*');
+        const formas_pagamento = await knex('formas_pagamento').select('*');
     
         const pagamentos = await knex('pagamentos').select('*');
 
-        const serializedItens = itens.map(item => {
+        const produto = await knex('produtos').select('*');
 
+        const serializedItens = formas_pagamento.map(forma => {
+
+            var custo = 0;
+            var receitaTotal = 0;
             var redimento = 0;
             var receita = 0;
 
             pagamentos.map(pagamento => {
-                if(pagamento.id_forma == item.id){
-                    receita = receita + 0;
+                try{
+                    console.log(produto[pagamento.id_produto].id, pagamento.id_produto);
+                }catch(error){
+                }
+
+                //var prod = produto[pagamento.id_produto];
+
+                //receitaTotal = receitaTotal + prod.valor*pagamento.qtde;
+
+                if(pagamento.id_forma == forma.id){
+
+                    //receita = receita + produto[pagamento.id_produto].valor*pagamento.qtde;
+                    //custo = 
+
                 }
             })
 
             return {
-                id: item.id,
-                nome: item.nome,
+                id: forma.id,
+                nome: forma.nome,
                 rendimento: '',
                 porcentagem: '',
             }

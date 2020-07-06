@@ -13,7 +13,7 @@ class FormasPagController{
 
             var custo = 0;
             var receitaTotal = 0;
-            var redimento = 0;
+            var rendimento = 0;
             var receita = 0;
 
             pagamentos.map(pagamento => {
@@ -39,11 +39,14 @@ class FormasPagController{
             }catch(error){
             }
 
+            var porcentagem = receita/receitaTotal;
+            rendimento = receita - custo;
+
             return {
                 id: forma.id,
                 nome: forma.nome,
-                rendimento: receitaTotal,
-                porcentagem: receita,
+                rendimento: rendimento.toFixed(2),
+                porcentagem: porcentagem.toFixed(2),
             }
         })
 

@@ -1,1 +1,1 @@
-web: npm install -g ts-node && npm i -g typescript && npm install ts-node --save-dev && npm install typescript -g && npm install typescript --save-dev && npm install @types/cors && npm run knex:migrate && npm run knex:seed && npm start
+web: npm install -g ts-node && npm i -g typescript && npm install ts-node --save-dev && npm install typescript -g && npm install typescript --save-dev && npm install @types/cors && npm start

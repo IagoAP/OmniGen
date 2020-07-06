@@ -34,7 +34,7 @@ A partir do fornecimento desses dados na tela de cadastro de canais seriamos cap
 | id | id_forma | n_campos | campo_1 | campo_2 | campo_3 | campo_4|
 |----|----------|----------|---------|---------|---------|-------|
 
-A tabela nao foi populada. Para fins explicativos: os campos seriam opcionais dependendo de cada metodo, por exemplo: a GetNet fornece apensa uma chave, ja para acessar a Api da cielo e necessario duas chaves.
+A tabela nao foi populada. Para fins explicativos: os campos seriam opcionais dependendo de cada metodo, por exemplo: a GetNet fornece apenas uma chave, ja para acessar a Api da cielo e necessario duas chaves.
 
 Assim definimos a tabela de produto que e cadastrado pelo cliente com o valor de custo/venda.
 
@@ -42,13 +42,13 @@ Assim definimos a tabela de produto que e cadastrado pelo cliente com o valor de
 |----|------|-------|-------|
 | 1 | Tenis corrida hyndel - feminino | 190 | 400 |
 
-Alem disso definimos uma tabela de pagamentos que podera ser construida com o restulado de todas as requisicoes das apis acima.
+Alem disso, definimos uma tabela de pagamentos que podera ser construida com o restulado de todas as requisicoes das APIs acima.
 
 | id | id_produto | id_forma |
 |----|------------|----------|
 | 1  | 2          | 3        |
 
-Assim temos nossa tabela mais importante, que seria preenchida pela nossa equipe e contem os dados de cada canal que o cliente usa:
+Assim, temos nossa tabela mais importante, que seria preenchida pela nossa equipe e contem os dados de cada canal que o cliente usa:
 
 | id | nome | taxa_inicial | taxa_fixa | taxa_inicial_per | taxa_deb | taxa_cred | taxa_cred_parc | taxa_universal |
 |----|----|----|----|----|----|----|----|----|
@@ -61,9 +61,9 @@ A partir dessa tabela somos capazes de definir o rendimento, custo, porcentagem 
 
 ## API
 
-A nossa api desenvolvida para esse exemplo e composta de dois GET:
+A nossa API desenvolvida para esse exemplo e composta de dois GETs:
 
-Primeiro GET retorna os dados de todas os canais em relacao ao valor total.
+O GET abaixo retorna os dados de todas os canais em relacao ao valor total.
 
 ### API: [https://omnigem.herokuapp.com/formasPag](https://omnigem.herokuapp.com/formasPag)
 

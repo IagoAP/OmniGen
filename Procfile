@@ -1,1 +1,1 @@
-web: npm install -g ts-node && npm start
+web: npm install -g ts-node && npm i -g typescript && npm start

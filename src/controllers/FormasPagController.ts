@@ -18,27 +18,32 @@ class FormasPagController{
 
             pagamentos.map(pagamento => {
                 try{
-                    console.log(produto[pagamento.id_produto].id, pagamento.id_produto);
+                    receitaTotal = receitaTotal + produto[pagamento.id_produto].valor*pagamento.qtde;
+
+                    if(pagamento.id_forma == forma.id){
+
+                        receita = receita + produto[pagamento.id_produto].valor*pagamento.qtde;
+                        custo = custo + produto[pagamento.id_produto].custo*pagamento.qtde 
+                            + produto[pagamento.id_produto].valor*forma.taxa_universal 
+                            + produto[pagamento.id_produto].valor*forma.taxa_cred 
+                            + produto[pagamento.id_produto].valor*forma.taxa_deb;
+    
+                    }
+
                 }catch(error){
                 }
-
-                //var prod = produto[pagamento.id_produto];
-
-                //receitaTotal = receitaTotal + prod.valor*pagamento.qtde;
-
-                if(pagamento.id_forma == forma.id){
-
-                    //receita = receita + produto[pagamento.id_produto].valor*pagamento.qtde;
-                    //custo = 
-
-                }
             })
+
+            try{
+                custo = custo + Number(forma.taxa_inicial);
+            }catch(error){
+            }
 
             return {
                 id: forma.id,
                 nome: forma.nome,
-                rendimento: '',
-                porcentagem: '',
+                rendimento: receitaTotal,
+                porcentagem: receita,
             }
         })
 

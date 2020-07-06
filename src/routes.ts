@@ -1,16 +1,15 @@
 import express from 'express';
 
-import PointController from './controllers/CanalController'
+import CanalController from './controllers/CanalController'
 import FormasPagController from './controllers/FormasPagController'
 
 const routes = express.Router();
 
-const pointsController = new PointController();
+const canalController = new CanalController();
 const formasPagController = new FormasPagController();
 
 routes.get('/formasPag', formasPagController.index);
 
-routes.get('/points', pointsController.index);
-routes.get('/points/:id', pointsController.show);
+routes.get('/canais/:id', canalController.show);
 
 export default routes;

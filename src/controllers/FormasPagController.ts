@@ -45,6 +45,8 @@ class FormasPagController{
             return {
                 id: forma.id,
                 nome: forma.nome,
+                custo: custo.toFixed(2),
+                receita: receita.toFixed(2),
                 rendimento: rendimento.toFixed(2),
                 porcentagem: porcentagem.toFixed(2),
             }
